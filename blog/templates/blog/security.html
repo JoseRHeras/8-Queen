@@ -1,0 +1,47 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+        <!--Creates the introduction section to the page along with the logo-->
+        <br><br>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-5 ">
+                    <h2>Cybersecurity</h2>
+                    <p>
+                        Perhaps one of the subjects that has caught my intrigue the most is security. Not only is a world on ifs own but in our current time
+                        time I have found myself fascinated by it and wanting to learn more about it.
+                    </p>
+                </div>
+                <div class="col-md-4  ml-auto">
+                    <!-- <img class="rounded mx-auto d-block" src="/assets/images/cyber.bmp" alt="cyber logo" style="height: 15%;"> -->
+                    <i class="fa fa-shield " aria-hidden="true" style="font-size: 150px; color: Tomato;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!--Main section, contains all the documentation of the things done with respects to the subject-->
+        <br><br>
+        <div class="container text-center preview-container">
+            <h3>Exploring the field</h3>
+
+            <!--Available article entrances on the page-->
+            {% for article in articles %}
+                <hr>
+                <div class="row text-left blog_post_preview" >
+                    <div class="col-md-3">
+                        <img class="rounded mx-auto d-block article_logo" src="/assets/images/cyber.bmp" alt="cyber logo" >
+                    </div>
+                    <div class="col-md-7">
+                        <a href="#"><h4>{{ article.title }}</h4></a>
+                        <p>
+                            {{ article.content}}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div> 
+    </div>
+
+{% endblock content %}
