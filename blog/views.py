@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import article_presentation
+from .models import article
 
 
 post = [
@@ -22,7 +22,7 @@ def about(request):
 
 def security(request):
     context = {
-        'articles' : article_presentation.objects.all()
+        'articles' : article.objects.all()
     }
     return render(request, 'blog/security.html', context)
 
