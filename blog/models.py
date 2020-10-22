@@ -16,5 +16,6 @@ class article_image(models.Model):
     article = models.OneToOneField(article, on_delete=models.CASCADE)
     image = models.ImageField(default="default.jpg", upload_to="article_pics")
 
+
     def __str__(self):
         return f"{self.article.title}"
