@@ -18,7 +18,6 @@ body {
     border-radius: 0;
   }
 
-
   .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
   }
@@ -34,6 +33,34 @@ body {
   }
 
 
+  /* Home Page CSS */
+  .home-page-block{
+    background-color: whitesmoke;
+    border-style: groove white;
+    border-radius: 10px;
+    padding: 1%;
+  }
+
+  .home-page-block .col1 {
+    padding-top: 10px;
+    border-style: groove;
+    border-radius: 10px;
+    margin: 10px;
+    
+  }
+
+  .home-page-block .col2 {
+    border-style: groove;
+    border-radius: 10px;
+    margin: 10px;
+    padding-top: 20px;
+    
+  }
+
+  .home-page-block .social-media-icons {
+    color: #262626;
+    font-size: 20px;
+  }
 
   /* Security Page Css */
 

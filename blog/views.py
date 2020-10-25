@@ -1,31 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import article
+from django.contrib.auth.models import User
+from local_var import *
 
 
-post = [
-    {
-        'name' : 'Jose Heras'
-    }
-]
+user = User.objects.filter(username=USER).first()
 
 def home(request):
-    context = {
-        'posts' : post
-    }
-    return render(request, 'blog/home.html', context)
+    return render(request, 'blog/home.html', {'user': user})
 
 def about(request):
     return HttpResponse('<h1>About</h1>')
 
-
-
 def security(request):
-    context = {
-        'articles' : article.objects.all()
-    }
-    return render(request, 'blog/security.html', context)
-
+    return render(request, 'blog/security.html', {'articles': user.article_set.all()})
 
 
 def projects(request):
