@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Jose Website</title>
+    <title>Portfolio Website</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,41 +14,38 @@
     <link rel="stylesheet" href="{% static 'blog/main.css'%}" type="text/css">
 
     <!-- Google Font css -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Display:wght@500&display=swap" rel="stylesheet">
     
   </head>
   <body>
 
     <div class="container">
-        <div class="jumbotron text-center jumbo_header">
-        </div>
+        <div class="jumbotron text-center jumbo_header"></div>
+               
+            <!--Navbar-->
+            <nav class="navbar navbar-expand-md sticky-top">       
+                <a class="navbar-brand" href="{% url 'blog-home' %}">JH</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#page_options">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+      
+                <div class="collapse navbar-collapse" id="page_options">   
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blog-security' %}">Security</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Software Development</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blog-projects'%}">Projects</a>
+                        </li>               
+                    </ul>
+                </div>
+            </nav>      
 
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-md sticky-top">       
-            <a class="navbar-brand" href="{% url 'blog-home' %}">JH</a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#page_options">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-  
-            <div class="collapse navbar-collapse" id="page_options">   
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog-security' %}">Security</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Software Development</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog-projects'%}">Projects</a>
-                    </li>               
-                </ul>
-            </div>
-        </nav>
-
-        {% block content%} {% endblock %}
-
-  </div>
-
+            {% block content%} {% endblock %}
+    </div>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -56,4 +53,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
+  
+  <footer> 
+      <div class="container">
+         <hr>
+         <div class="jumbotron"></div>        
+      </div>
+  </footer>
 </html>

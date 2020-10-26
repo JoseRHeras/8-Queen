@@ -1,6 +1,6 @@
 body {
   /* background-color: #FFEBEE; */
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto', serif;
 }
 
 .jumbo_header {
@@ -39,6 +39,7 @@ body {
     border-style: groove white;
     border-radius: 10px;
     padding: 1%;
+    height: 100%;
   }
 
   .home-page-block .col1 {
