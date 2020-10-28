@@ -1,6 +1,12 @@
+/* Base template styling */
+
 body {
   /* background-color: #FFEBEE; */
   font-family: 'Roboto', serif;
+}
+
+footer .container .jumbotron {
+  background-color: #262626;
 }
 
 .jumbo_header {
