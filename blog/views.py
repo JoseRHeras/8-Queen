@@ -19,3 +19,6 @@ def security(request):
 
 def projects(request):
     return render(request, 'blog/projects.html')
+
+def under_construction(request):
+    return render(request, 'blog/under_construction.html')
