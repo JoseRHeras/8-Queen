@@ -9,6 +9,7 @@ footer .container .jumbotron {
   background-color: #262626;
 }
 
+
 .jumbo_header {
   background-color: #262626;
 }
@@ -89,3 +90,14 @@ footer .container .jumbotron {
     border-color: #262626;
     border-radius: 8px;
   }
+
+
+/* article apps formatting */
+.article-style {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.article-style .a-title {
+  font-size: 45px;
+}
