@@ -1,13 +1,16 @@
 from django.shortcuts import render
-from .models import article
+from .models import (article, HomePageProfile)
 from django.contrib.auth.models import User
 from local_var import *
-from django.views.generic import ListView
+from django.views.generic import (ListView, DetailView)
+from .models import HomePageProfile
 
 
-user = User.objects.filter(username=USER).first()
+
+#user = User.objects.filter(username=USER).first()
 
 def home(request):
+    user = HomePageProfile.objects.filter(pk= 1)[0]
     return render(request, 'blog/home.html', {'user': user})
 
 
@@ -22,4 +25,11 @@ class ArticleListView (ListView):
     model = article
     template_name = 'blog/security.html'
     context_object_name = 'articles'
+
+
+class HomePageDetailView(DetailView):
+    model= HomePageProfile
+    template_name = 'blog/home.html'
+    context_object_name = 'User'
+
 
