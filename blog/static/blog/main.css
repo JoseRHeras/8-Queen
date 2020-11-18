@@ -3,15 +3,25 @@
 body {
   /* background-color: #FFEBEE; */
   font-family: 'Roboto', serif;
+  background-image: url("../../../media/css_files/body-background.jpg ");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 footer .container .jumbotron {
   background-color: #262626;
 }
 
+.jumbotron {
+  background-color: #262626;
+  
+}
 
 .jumbo_header {
-  background-color: #262626;
+  background-image: url("../../../media/css_files/header.jpg");
+  background-size: auto;
+  background-position: center center;
 }
 
 .navbar {
