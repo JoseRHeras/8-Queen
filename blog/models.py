@@ -30,7 +30,7 @@ class HomePageProfile(models.Model):
             img.save(self.profile_image.path)
 
 class article(models.Model):
-    title = models.CharField( max_length=50)
+    title = models.CharField(max_length=50)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -68,3 +68,13 @@ class user_introduction_data(models.Model):
             profile_size = (300, 300)
             img.thumbnail(profile_size)
             img.save(self.image.path)
+
+
+class SectionHeader(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField()
+    logo = models.CharField(max_length=80)
+
+
+    def __str__(self):
+        return f"{self.name} header data"

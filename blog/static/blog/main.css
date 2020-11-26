@@ -24,6 +24,21 @@ footer .container .jumbotron {
   background-position: center center;
 }
 
+/* Href links styling*/
+a:link {
+  color: darkblue;
+}
+
+a:visited {
+  color: #262626;
+}
+
+a:hover{
+  color: darkblue;
+}
+
+/* Navbar Styling */
+
 .navbar {
     margin-bottom: 0;
     background-color: #262626;
@@ -94,7 +109,6 @@ footer .container .jumbotron {
   }
 
   .blog_post_preview {
-    /* background-color: #7EA3CC; */
     padding: 10px 10px 10px 10px;
     border-style: solid;
     border-color: #262626;
@@ -103,11 +117,11 @@ footer .container .jumbotron {
 
 
 /* article apps formatting */
-.article-style {
-  font-size: 22px;
-  letter-spacing: 2px;
-}
+  .article-style {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
 
-.article-style .a-title {
-  font-size: 45px;
-}
+  .article-style .a-title {
+    font-size: 45px;
+  }
