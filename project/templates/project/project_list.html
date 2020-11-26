@@ -1,0 +1,58 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+     <!--This section contains the introductory content of the project page-->
+     <div class="container mt-4">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6 col-12 ">
+                <h2>{{header.name}}</h2>
+                <p>{{ header.description}}</p>             
+            </div>
+            <div class="col col-lg-4 col-12 ml-auto ">
+                <i class="{{header.logo}}" aria-hidden="true" style="font-size: 150px; color: #262626;"></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+            {% for object in page_obj%}             
+                <div class="col col-lg-4 col-sm-12 col-12 ">
+                    <div class="container text-center p-4 m-2 rounded " style="background-color: whitesmoke; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">                      
+                        <h3>{{object.name}}</h3>
+                        <a href="{{object.project_link}}" target="_blank" >
+                            <i class="{{object.icon}} my-3" aria-hidden="true"></i>
+                        </a>
+                        <p>{{object.description}}</p>
+                    </div>
+
+                {% if forloop.counter|divisibleby:3 %}
+                    </div></div><div class="row justify-content-md-center">
+                {% else %}
+                    </div>
+                {% endif%}
+            {% endfor%}
+        </div>
+
+        <div class="container text-center mt-4 mb-2" >            
+                {% if page_obj.has_previous %}
+                    <a class="btn btn-outline-info btn-sm" href="?page=1">First</a>
+                    <a class="btn btn-outline-info btn-sm" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif%}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <a class="btn btn-dark btn-sm active" style="color: white;" href="?page={{ num }}">{{ num }}</a>                 
+                    {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                        <a class="btn btn-outline-info btn-sm" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a class="btn btn-outline-info btn-sm" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="btn btn-outline-info btn-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                {% endif%}          
+        </div>     
+    </div>   
+{% endblock content %}
