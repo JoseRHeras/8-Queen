@@ -1,0 +1,62 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+        <!--Creates the introduction section to the page along with the logo-->
+        <br><br>
+        <div class="container ">
+            <div class="row justify-content-between">
+                <div class="col-md-5 ">
+                    <h2>{{header.name}}</h2>
+                    <p>{{header.description}}</p>
+                </div>
+                <div class="col-md-4  col-12 ml-auto">
+                    <i class="{{header.logo}} " aria-hidden="true" style="font-size: 150px; color: #262626;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!--Main section, contains all the documentation of the things done with respects to the subject-->
+        <br><br>
+        <div class="container text-center ">
+            <h3>Exploring the field</h3>
+
+            <!-- Available article entrances on the page-->
+            {% for article in page_obj %}
+                  <hr>
+                    <div class="container pt-1" style="background-color: whitesmoke; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-md-4 col-12" >
+                                <img class="" src="{{ article.image.url }}"  alt="{{ article.image_alt }}">
+                            </div>
+                            <div class="col-md-7 col-12">                         
+                                <h5 ><a href="{% url 'article-fullview' article.id %}">{{article.name}}</a></h5>
+                                <p>{{ article.brief_summary }}</p>
+                                <p>{{article.pub_date}}</p>
+                            </div>                                   
+                        </div>
+                    </div>                
+            {% endfor %}
+            <div class="container text-center mt-4 mb-2" >            
+                {% if page_obj.has_previous %}
+                    <a class="btn btn-outline-info btn-sm" href="?page=1">First</a>
+                    <a class="btn btn-outline-info btn-sm" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif%}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <a class="btn btn-dark btn-sm active" style="color: white;" href="?page={{ num }}">{{ num }}</a>                 
+                    {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                        <a class="btn btn-outline-info btn-sm" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a class="btn btn-outline-info btn-sm" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="btn btn-outline-info btn-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                {% endif%}          
+        </div>  
+            
+
+        </div> 
+    </div>
+
+{% endblock content %}

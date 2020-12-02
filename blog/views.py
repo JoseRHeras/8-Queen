@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from .models import (article, HomePageProfile)
-from django.views.generic import ListView
-
+from .models import HomePageProfile
 
 
 def home(request):
@@ -9,17 +7,16 @@ def home(request):
     return render(request, 'blog/home.html', {'user': user})
 
 
-def projects(request):
-    return render(request, 'blog/projects.html')
-
 def under_construction(request):
     return render(request, 'blog/under_construction.html')
 
 
-class ArticleListView (ListView):
-    model = article
-    template_name = 'blog/security.html'
-    context_object_name = 'articles'
+def software_project_articles(request):
+    return render(request, '')
+
+
+
+
 
 
 

@@ -1,15 +1,42 @@
 from django.db import models
-from blog.models import article
 from PIL import Image
 
+
+class Article(models.Model):
+    CATEGORY = (
+        ('1', 'Cybersecurity'),
+        ('2', 'Software')
+    )
+
+    name = models.CharField(max_length=50)
+    image = models.ImageField(default="article_default.jpg",upload_to="article_main_image")
+    image_alt = models.CharField(max_length=70, default='This is an image')
+    brief_summary = models.TextField()
+    section = models.CharField(max_length=80)
+    pub_date = models.DateField()
+    category = models.CharField(max_length=40, choices=CATEGORY, default='1')
+
+    def __str__(self):
+        return f"{self.name} article"
+
+    def save(self):
+        super().save()
+        
+        img = Image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            profile_size = (200, 200)
+            img.thumbnail(profile_size)
+            img.save(self.image.path)
+    
+
 class FullArticle(models.Model):
-    article_brief = models.ForeignKey(article, on_delete=models.CASCADE)
+    short_article = models.ForeignKey(Article, on_delete=models.CASCADE)
     article_title = models.CharField(max_length=70)
     lead_paragraph = models.TextField()
     ending_paragraph = models.TextField()
     
     def __str__(self):
-        return f"{self.article_brief.title} Full Article"
+        return f"{self.short_article.name} Full Article"
 
     @property
     def paragraph_sorted_by_position(self):
@@ -47,4 +74,5 @@ class ParagraphImage(models.Model):
             profile_size = (200, 200)
             img.thumbnail(profile_size)
             img.save(self.image.path)
-    
+
+

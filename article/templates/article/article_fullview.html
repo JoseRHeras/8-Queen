@@ -2,12 +2,13 @@
 
 {% block content %}
     <br>
-    <div class="container article-style">
-        <h2 class="text-center a-title">{{ object.article_title }}</h2>
+    <div class="container px-5 py-3 article-style" >
+        <h2 class="container text-center a-title">{{ object.article_title }}</h2>
         <hr>
-        <p class="a-lead">{{ object.lead_paragraph }}</p>       
-            {% for paragraph in object.paragraph_sorted_by_position %}                
-                <p class="a-body">{{paragraph.paragraph_content}}</p>
+        <p class="container px-2">{{ object.lead_paragraph }}</p>       
+        
+        {% for paragraph in object.paragraph_sorted_by_position %}                
+            <p class="container px-2 a-body" >{{paragraph.paragraph_content}}</p>
                 {% if paragraph.number_of_images > 0 %}                   
                     <div id="carousel_{{paragraph.position_in_article}}" class="carousel slide" data-ride="carousel">
                         <div class="images-carousel">
@@ -37,8 +38,8 @@
                         </a>
                     </div> 
                 {% endif %}                          
-            {% endfor%}
-        <p class="a.conclusion">{{ object.ending_paragraph }}</p>
-    </div>
+        {% endfor%}
 
+        <p class="container px-2">{{ object.ending_paragraph }}</p>
+    </div>
 {% endblock content%}
