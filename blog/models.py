@@ -17,8 +17,8 @@ class HomePageProfile(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name} profile"
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
         img = Image.open(self.profile_image.path)
 

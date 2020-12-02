@@ -19,8 +19,8 @@ class Article(models.Model):
     def __str__(self):
         return f"{self.name} article"
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         
         img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:
@@ -66,8 +66,8 @@ class ParagraphImage(models.Model):
     def __str__(self):
         return f"Paragraph {self.paragraph.position_in_article} in article {self.paragraph.parent_article.article_title}"
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         
         img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:
