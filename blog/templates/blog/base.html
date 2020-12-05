@@ -13,6 +13,8 @@
     <script src="https://kit.fontawesome.com/dc0fede21e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'blog/main.css'%}" type="text/css">
 
+    {% block style %} {% endblock %} 
+
     <!-- Google Font css -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Display:wght@500&display=swap" rel="stylesheet">
     
@@ -22,34 +24,35 @@
     <div class="container">
         <div class="jumbotron text-center jumbo_header"></div>
                
-            <!--Navbar-->
-            <nav class="navbar navbar-expand-md sticky-top">       
-                <a class="navbar-brand" href="{% url 'blog-home' %}">JH</a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#page_options">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-      
-                <div class="collapse navbar-collapse" id="page_options">   
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog-home' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'article-listview' '1' %}">Security</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'article-listview' '2' %}">Software Development</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'project-full-list'%}">Projects</a>
-                        </li>               
-                    </ul>
-                </div>
-            </nav>      
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-md sticky-top">       
+            <a class="navbar-brand" href="{% url 'blog-home' %}">JH</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#page_options">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="page_options">   
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog-home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'article-listview' '1' %}">Security</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'article-listview' '2' %}">Software Development</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'project-full-list'%}">Projects</a>
+                    </li>               
+                </ul>
+            </div>
+        </nav>      
 
-            {% block content%} {% endblock %}
     </div>
-      
+
+    {% block content%} {% endblock %}
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

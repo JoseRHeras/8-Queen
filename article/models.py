@@ -28,6 +28,9 @@ class Article(models.Model):
             img.thumbnail(profile_size)
             img.save(self.image.path)
     
+    @classmethod
+    def is_there_articles(cls,category_id):
+        return len(Article.objects.filter(category=category_id)) > 0
 
 class FullArticle(models.Model):
     short_article = models.ForeignKey(Article, on_delete=models.CASCADE)

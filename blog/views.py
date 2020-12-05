@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import  render
 from .models import HomePageProfile
 
 
@@ -7,16 +7,12 @@ def home(request):
     return render(request, 'blog/home.html', {'user': user})
 
 
-def under_construction(request):
-    return render(request, 'blog/under_construction.html')
+def error_404_view(request, exception):
+    context = {}
+    return render(request, "blog/404.html", context)
 
+def error_500_view(request):
+    return render(request, 'blog/500.html')
 
-def software_project_articles(request):
-    return render(request, '')
-
-
-
-
-
-
-
+def test(request):  
+    return render(request, 'blog/500.html')

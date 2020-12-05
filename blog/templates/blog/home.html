@@ -2,9 +2,9 @@
 
 
 {% block content%}
-
-    <hr>
+<div class="container">
     <div class="container home-page-block">
+        <hr>
         <div class="row justify-content-around">
             <div class="col-md-3 col1">
                 <img class="img-thumbnail border rounded mx-auto d-block"  src="{{ user.profile_image.url }}" alt="profile_picture">
@@ -36,4 +36,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock content%}

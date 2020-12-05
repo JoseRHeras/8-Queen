@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+
+{% block style%}
+    <style>
+        .no-articles {
+            font-style: italic;
+        }
+
+        .no-articles .title {
+            text-transform: uppercase;
+        }
+
+        .no-articles .icon {
+            font-size: 150px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+{% endblock style%}
+
+{% block content %}
+    <br>
+    
+   <div class="container ">
+        <div class="container text-center no-articles">
+            <div class="m-3">
+                <div class="d-flex align-items-center justify-content-center" style="min-height: 50vh;">
+                    <div class="w-auto" style="padding: 25px;">        
+                        <i class="icon fas fa-cog fa-spin"></i>                     
+                        <br><br><br>
+                        <h2 class="title">Oooppss!!</h2>
+                        <p>It seems no articles had been added it yet!!.</p>
+                        <p>Better put the author to work</p> 
+                    </div>         
+                </div> 
+            </div>    
+        </div>
+   </div>
+
+{% endblock content %}
